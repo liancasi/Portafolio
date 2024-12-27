@@ -2,45 +2,46 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]  # Este flujo de trabajo se ejecutará cuando se haga push a la rama main.
-  workflow_dispatch:  # Permite ejecutar este flujo de trabajo manualmente desde la pestaña Actions en GitHub.
+    branches:
+      - main
+  workflow_dispatch:
 
 permissions:
-  contents: read  # Permite leer el contenido del repositorio.
-  pages: write  # Permite desplegar en GitHub Pages.
-  id-token: write  # Necesario para autenticarse al despliegue.
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # El trabajo se ejecutará en una máquina virtual con Ubuntu.
-    
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
-        uses: actions/checkout@v4  # Checkout del código del repositorio.
-
+      - name: Checkout repository
+        uses: actions/checkout@v4
       - name: Set up Node.js
-        uses: actions/setup-node@v4  # Configura Node.js en la versión 20.
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'  # Especifica que se usará Node.js versión 20.
-
+          node-version: '20'
       - name: Install dependencies
-        run: npm ci  # Usa npm ci para instalar dependencias desde el package-lock.json.
+        run: npm install
+      - name: Build the site
+        run: npm run build
 
-      - name: Ensure execute permissions for Astro
-        run: chmod +x ./node_modules/.bin/astro  # Da permisos de ejecución al binario de Astro.
-
-      - name: Build the site with Astro
-        run: npm run build  # Ejecuta el script de construcción (se asegura de que el sitio se construya correctamente con Astro).
+      # Subir los artefactos generados
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages
+          path: dist/
 
   deploy:
-    needs: build  # El trabajo de despliegue depende de que el trabajo de construcción se haya completado con éxito.
-    runs-on: ubuntu-latest  # Se ejecuta en una máquina virtual con Ubuntu.
-
+    needs: build
+    runs-on: ubuntu-latest
     environment:
-      name: github-pages  # Define el entorno de despliegue.
-      url: ${{ steps.deployment.outputs.page_url }}  # URL del sitio desplegado en GitHub Pages.
-
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4  # Usa la acción de GitHub para desplegar el contenido a GitHub Pages.
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages
