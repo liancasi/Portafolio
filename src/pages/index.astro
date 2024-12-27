@@ -1,9 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import Bagde from "../components/Badge.astro";
+import Badge from "../components/Badge.astro";
 import SocialPill from "../components/SocialPill.astro";
-import LinkendInIcon from "../components/icons/LinkedIn.astro";
+import LinkedIn from "../components/icons/LinkedIn.astro";
 import GitHubIcon from "../components/icons/GitHub.astro";
 import Books from "../components/icons/Books.astro";
 import Code from "../components/icons/Code.astro";
@@ -11,70 +10,72 @@ import Education from "../components/Education.astro";
 import Projects from "../components/Projects.astro";
 import Sobremi from "../components/Sobremi.astro";
 import Aboutme from "../components/icons/Aboutme.astro";
-import LinkedIn from "../components/icons/LinkedIn.astro";
-import Badge from "../components/Badge.astro";
 import Contacto from "../components/Contacto.astro";
 import Telefono from "../components/icons/Telefono.astro";
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Layout
-  title="Portafolio de Lizeth Caro -Desarrolladora y Programadora Web"
+  title="Portafolio de Lizeth Caro - Desarrolladora y Programadora Web"
   description="Trabajo de Lizeth Caro en desarrollo web y programación, enfocado en soluciones digitales innovadoras."
 >
-  <main class="px-4 py-24">
+  <main class="px-4 sm:px-6 lg:px-8">
     <section
-      class="flex flex-col md:flex-row items-center md:items-start gap-8 w-full max-w-4xl mx-auto py-20"
+      id="inicio"
+      class="min-h-screen flex flex-col justify-center max-w-4xl mx-auto py-12 sm:py-16 lg:py-20"
     >
-      <img
-        class="rounded-full w-32 h-314 md:w-48 md:h-48 mb-8 md:mb-0 md:mr-8 object-cover"
-        src="/images/FOTOLIZETH_FONDO_GRIS.jpg"
-        alt="Lizeth Caro"
-      />
+      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <img
+          class="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover border-4 border-purple-500/20"
+          src={`${baseUrl}/images/FOTOLIZETH_FONDO_GRIS.jpg`}
+          alt="Lizeth Caro"
+        />
 
-      <div class="text-left md:flex-1">
-        <h1
-          class="text-white text-2xl md:text-4xl lg:text-5xl font-bold flex flex-row items-center gap-x-4 pb-6 lg:pb-10"
-        >
-          Lizeth Caro
-          <a
-            href="/documents/hoja de vida_Lizeth Caro.pdf"
-            class="button flex justify-center items-center"
-            download
-            target="_blank"
-            rel="noopener"
-          >
-            <Badge>Currículum</Badge>
-          </a>
-        </h1>
-        <h2 class="text-xl text-gray-300 mb-6">
-          Desarrolladora Web | Estudiante de Ingeniería de Sistemas
-        </h2>
+        <div class="text-center md:text-left">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
+            Lizeth Caro
+            <a
+              href={`${baseUrl}/documents/hoja-de-vida-lizeth-caro.pdf`}
+              class="inline-block"
+              download
+              target="_blank"
+              rel="noopener"
+            >
+              <Badge>Currículum</Badge>
+            </a>
+          </h1>
+          
+          <h2 class="text-xl sm:text-2xl text-purple-200/90 mb-6">
+            Desarrolladora Web | Estudiante de Ingeniería de Sistemas
+          </h2>
 
-        <p class="text-lg mb-8">
-          Apasionada por la tecnología y el desarrollo de soluciones digitales
-          innovadoras. Especializada en la creación de aplicaciones web
-          interactivas y funcionales.
-        </p>
+          <p class="text-lg text-gray-300 mb-8 max-w-xl">
+            Apasionada por la tecnología y el desarrollo de soluciones digitales
+            innovadoras. Especializada en la creación de aplicaciones web
+            interactivas y funcionales.
+          </p>
 
-        <nav class="flex gap-x-4 mt-4">
-          <SocialPill href="https://www.linkedin.com/in/liancasi/">
-            <LinkedIn class="size-6" />
-            LinkedIn
-          </SocialPill>
+          <nav class="flex flex-wrap justify-center md:justify-start gap-4">
+            <SocialPill href="https://www.linkedin.com/in/liancasi/">
+              <LinkedIn class="size-6" />
+              LinkedIn
+            </SocialPill>
 
-          <SocialPill href="https://github.com/liancasi">
-            <GitHubIcon class="size-6" />
-            GitHub
-          </SocialPill>
-        </nav>
+            <SocialPill href="https://github.com/liancasi">
+              <GitHubIcon class="size-6" />
+              GitHub
+            </SocialPill>
+          </nav>
+        </div>
       </div>
     </section>
 
     <section
       id="formacion-educativa"
-      class="text-center w-full mx-auto lg:w-[740px] py-10 pb-24"
+      class="max-w-4xl mx-auto py-16 sm:py-24"
     >
-      <h2 class="text-2xl font-semibold mb-4 flex glap-x-2">
+      <h2 class="text-2xl sm:text-3xl font-semibold mb-8 flex items-center justify-center gap-x-3">
         <Books class="size-8" />
         Formación Educativa
       </h2>
@@ -83,11 +84,9 @@ import Telefono from "../components/icons/Telefono.astro";
 
     <section
       id="proyectos"
-      class="text-center w-full mx-auto max-w-[1200px] py-10 pb-24"
+      class="max-w-6xl mx-auto py-16 sm:py-24"
     >
-      <h2
-        class="text-2xl font-semibold mb-8 flex items-center justify-center gap-x-2"
-      >
+      <h2 class="text-2xl sm:text-3xl font-semibold mb-8 flex items-center justify-center gap-x-3">
         <Code class="size-8" />
         Proyectos
       </h2>
@@ -96,28 +95,24 @@ import Telefono from "../components/icons/Telefono.astro";
 
     <section
       id="sobremi"
-      class="text-center w-full mx-auto max-w-[1200px] py-10 pb-24"
+      class="max-w-4xl mx-auto py-16 sm:py-24"
     >
-      <h2
-        class="text-2xl font-semibold mb-8 flex items-center justify-center gap-x-2"
-      >
-        <Aboutme class="size-12" />
+      <h2 class="text-2xl sm:text-3xl font-semibold mb-8 flex items-center justify-center gap-x-3">
+        <Aboutme class="size-8" />
         Sobre Mí
       </h2>
       <Sobremi />
     </section>
 
     <section
-    id="contacto"
-    class="text-center w-full mx-auto max-w-[1200px] py-10 pb-24"
-  >
-    <h2
-      class="text-2xl font-semibold mb-8 flex items-center justify-center gap-x-2"
+      id="contacto"
+      class="max-w-4xl mx-auto py-16 sm:py-24"
     >
-      <Telefono class="size-12" />
-      Contacto
-    </h2>
-    <Contacto />
-  </section>
+      <h2 class="text-2xl sm:text-3xl font-semibold mb-8 flex items-center justify-center gap-x-3">
+        <Telefono class="size-8" />
+        Contacto
+      </h2>
+      <Contacto />
+    </section>
   </main>
 </Layout>
