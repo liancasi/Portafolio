@@ -5,8 +5,5 @@ export default defineConfig({
   base: '/Portafolio',
   build: {
     assets: 'assets'
-  },
-  experimental: {
-    assets: true
   }
 });
