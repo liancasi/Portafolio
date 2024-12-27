@@ -1,11 +1,13 @@
 name: Deploy to GitHub Pages
 
 on:
+  # Activa el workflow cada vez que hay un push a la rama main
   push:
-    branches:
-      - main
+    branches: [ main ]
+  # Permite ejecutar este workflow manualmente desde la pestaña Actions
   workflow_dispatch:
 
+# Permite clonar el repositorio y desplegar a GitHub Pages
 permissions:
   contents: read
   pages: write
@@ -15,32 +17,28 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout your repository using git
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Install Astro globally
-        run: npm install -g astro
-
-      - name: Fix permissions for Astro CLI
-        run: sudo chmod +x node_modules/.bin/astro
-
-      - name: Build the site
+      - name: Build
         run: npm run build
 
-      # Subir los artefactos generados
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
-          path: dist/
+          path: dist
 
   deploy:
     needs: build
@@ -52,5 +50,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          artifact_name: github-pages
