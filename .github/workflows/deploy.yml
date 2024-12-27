@@ -1,13 +1,10 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Activa el workflow cada vez que hay un push a la rama main
   push:
     branches: [ main ]
-  # Permite ejecutar este workflow manualmente desde la pestaña Actions
   workflow_dispatch:
 
-# Permite clonar el repositorio y desplegar a GitHub Pages
 permissions:
   contents: read
   pages: write
@@ -50,4 +47,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-       
