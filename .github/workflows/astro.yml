@@ -24,7 +24,10 @@ jobs:
           node-version: '20'  # Especifica que se usará Node.js versión 20.
 
       - name: Install dependencies
-        run: npm install  # Instala las dependencias del proyecto desde package.json.
+        run: npm ci  # Usa npm ci para instalar dependencias desde el package-lock.json.
+
+      - name: Ensure execute permissions for Astro
+        run: chmod +x ./node_modules/.bin/astro  # Da permisos de ejecución al binario de Astro.
 
       - name: Build the site with Astro
         run: npm run build  # Ejecuta el script de construcción (se asegura de que el sitio se construya correctamente con Astro).
