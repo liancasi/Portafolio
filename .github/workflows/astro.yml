@@ -26,9 +26,6 @@ jobs:
       - name: Install dependencies
         run: npm install  # Instala las dependencias del proyecto desde package.json.
 
-      - name: Give execute permission to astro
-        run: chmod +x $(npm bin)/astro  # Da permisos de ejecución al comando astro si es necesario.
-
       - name: Build the site with Astro
         run: npm run build  # Ejecuta el script de construcción (se asegura de que el sitio se construya correctamente con Astro).
 
