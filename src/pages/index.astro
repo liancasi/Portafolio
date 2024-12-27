@@ -1,0 +1,123 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Bagde from "../components/Badge.astro";
+import SocialPill from "../components/SocialPill.astro";
+import LinkendInIcon from "../components/icons/LinkedIn.astro";
+import GitHubIcon from "../components/icons/GitHub.astro";
+import Books from "../components/icons/Books.astro";
+import Code from "../components/icons/Code.astro";
+import Education from "../components/Education.astro";
+import Projects from "../components/Projects.astro";
+import Sobremi from "../components/Sobremi.astro";
+import Aboutme from "../components/icons/Aboutme.astro";
+import LinkedIn from "../components/icons/LinkedIn.astro";
+import Badge from "../components/Badge.astro";
+import Contacto from "../components/Contacto.astro";
+import Telefono from "../components/icons/Telefono.astro";
+---
+
+<Layout
+  title="Portafolio de Lizeth Caro -Desarrolladora y Programadora Web"
+  description="Trabajo de Lizeth Caro en desarrollo web y programación, enfocado en soluciones digitales innovadoras."
+>
+  <main class="px-4 py-24">
+    <section
+      class="flex flex-col md:flex-row items-center md:items-start gap-8 w-full max-w-4xl mx-auto py-20"
+    >
+      <img
+        class="rounded-full w-32 h-314 md:w-48 md:h-48 mb-8 md:mb-0 md:mr-8 object-cover"
+        src="/src/images/FOTOLIZETH_FONDO_GRIS.jpg"
+        alt="Lizeth Caro"
+      />
+
+      <div class="text-left md:flex-1">
+        <h1
+          class="text-white text-2xl md:text-4xl lg:text-5xl font-bold flex flex-row items-center gap-x-4 pb-6 lg:pb-10"
+        >
+          Lizeth Caro
+          <a
+            href="src/components/documents/hoja de vida_Lizeth Caro.pdf"
+            class="button flex justify-center items-center"
+            download
+            target="_blank"
+            rel="noopener"
+          >
+            <Badge>Currículum</Badge>
+          </a>
+        </h1>
+        <h2 class="text-xl text-gray-300 mb-6">
+          Desarrolladora Web | Estudiante de Ingeniería de Sistemas
+        </h2>
+
+        <p class="text-lg mb-8">
+          Apasionada por la tecnología y el desarrollo de soluciones digitales
+          innovadoras. Especializada en la creación de aplicaciones web
+          interactivas y funcionales.
+        </p>
+
+        <nav class="flex gap-x-4 mt-4">
+          <SocialPill href="https://www.linkedin.com/in/liancasi/">
+            <LinkedIn class="size-6" />
+            LinkedIn
+          </SocialPill>
+
+          <SocialPill href="https://github.com/liancasi">
+            <GitHubIcon class="size-6" />
+            GitHub
+          </SocialPill>
+        </nav>
+      </div>
+    </section>
+
+    <section
+      id="formacion-educativa"
+      class="text-center w-full mx-auto lg:w-[740px] py-10 pb-24"
+    >
+      <h2 class="text-2xl font-semibold mb-4 flex glap-x-2">
+        <Books class="size-8" />
+        Formación Educativa
+      </h2>
+      <Education />
+    </section>
+
+    <section
+      id="proyectos"
+      class="text-center w-full mx-auto max-w-[1200px] py-10 pb-24"
+    >
+      <h2
+        class="text-2xl font-semibold mb-8 flex items-center justify-center gap-x-2"
+      >
+        <Code class="size-8" />
+        Proyectos
+      </h2>
+      <Projects />
+    </section>
+
+    <section
+      id="sobremi"
+      class="text-center w-full mx-auto max-w-[1200px] py-10 pb-24"
+    >
+      <h2
+        class="text-2xl font-semibold mb-8 flex items-center justify-center gap-x-2"
+      >
+        <Aboutme class="size-12" />
+        Sobre Mí
+      </h2>
+      <Sobremi />
+    </section>
+
+    <section
+    id="contacto"
+    class="text-center w-full mx-auto max-w-[1200px] py-10 pb-24"
+  >
+    <h2
+      class="text-2xl font-semibold mb-8 flex items-center justify-center gap-x-2"
+    >
+      <Telefono class="size-12" />
+      Contacto
+    </h2>
+    <Contacto />
+  </section>
+  </main>
+</Layout>

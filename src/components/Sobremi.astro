@@ -1,0 +1,89 @@
+---
+import Git from "./icons/GitHub.astro"
+import Brain  from "./icons/Brain.astro"
+import React from "./icons/React2.astro"
+import Code2 from "./icons/Code2.astro"
+import Puzzle from "./icons/Puzzle.astro"
+import Api from "./icons/Api.astro"
+import User from "./icons/User.astro"
+import Database from "./icons/Database.astro"
+
+
+// Importa los demás iconos de manera similar
+
+const ABOUT_ME = "Estudiante de Ingeniería de Sistemas con formación diversa en desarrollo de software, programación y tecnologías actuales. Combino mis estudios universitarios con cursos especializados para mantenerme actualizado en las últimas tendencias tecnológicas del sector."
+
+const SKILLS = [
+  {
+    icon: Git,
+    name: "Uso de Git",
+    description: "Control de versiones y colaboración",
+  },
+  {
+    icon: Brain,
+    name: "Aprendizaje y Adaptación Rápida",
+    description: "Capacidad de aprender nuevas tecnologías",
+    color: "from-purple-500 to-pink-500"
+  },
+  {
+    icon: Code2,
+    name: "Desarrollo de Software",
+    description: "Creación de soluciones robustas",
+    color: "from-blue-500 to-cyan-500"
+  },
+  {
+    icon: Puzzle,
+    name: "Resolución de problemas",
+    description: "Análisis y solución efectiva",
+    color: "from-green-500 to-emerald-500"
+  },
+  {
+    icon: Api,
+    name: "Diseño y Desarrollo de APIs",
+    description: "Integración de servicios",
+    color: "from-yellow-500 to-orange-500"
+  },
+  {
+    icon: User,
+    name: "Comunicación y Trabajo en Equipo",
+    description: "Colaboración efectiva",
+    color: "from-indigo-500 to-purple-500"
+  },
+  {
+    icon: Database,
+    name: "SQL y Bases de Datos",
+    description: "Gestión de datos",
+    color: "from-red-500 to-pink-500"
+  },
+  {
+    icon: React,
+    name: "React.js",
+    description: "Desarrollo frontend moderno",
+    color: "from-cyan-500 to-blue-500"
+  }
+
+
+]
+---
+
+<section class="w-full px-4 lg:px-8 mx-auto max-w-7xl py-16">
+ 
+  <div class="bg-gray-800/50 rounded-lg p-8 shadow-lg mb-12">
+    <p class="text-lg leading-relaxed">{ABOUT_ME}</p>
+  </div>
+
+  <h3 class="text-2xl font-semibold mb-6 text-center">Habilidades</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    {SKILLS.map((skill) => (
+      <div class="bg-gray-800/30 rounded-lg p-6 transition-all duration-300 hover:bg-gray-800/50 hover:scale-105">
+        <div class="flex flex-col items-center text-center space-y-4">
+          <div class="p-3 rounded-full bg-gray-700">
+            <skill.icon class="w-8 h-8 text-primary" />
+          </div>
+          <h4 class="font-semibold text-lg">{skill.name}</h4>
+          <p class="text-sm text-gray-400">{skill.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

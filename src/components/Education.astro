@@ -1,0 +1,63 @@
+---
+import EducationItem from "./EducationItem.astro";
+
+const EDUCATION = [
+  {
+    date: "2024",
+    title: "Universidad del Tolima",
+    description: ["Ingeniería de Sistemas - Quinto Semestre"]
+  },
+  {
+    date: "2024",
+    title: "Python Institute",
+    description: ["PCEP™ – Certified Entry-Level Python Programmer"]
+  },
+  {
+    date: "2024",
+    title: "Universidad Nacional de Colombia",
+    description: ["Diplomado en Desarrollo de Aplicaciones Móviles"]
+  },
+  {
+    date: "2024",
+    title: "ALURA",
+    description: [
+      "Curso JAVA",
+      "Curso Git y GitHub",
+      "Curso de HTML5 y CSS3"
+    ]
+  },
+  {
+    date: "2023",
+    title: "PLATZI",
+    description: ["Curso Básico de Python"]
+  },
+  {
+    date: "2023",
+    title: "HUAWEI",
+    description: ["Curso de entrenamiento HCIA Cloud Service 2023"]
+  },
+  {
+    date: "2022",
+    title: "SENA",
+    description: [
+      "Conceptualización del Lenguaje de Programación C++",
+      "Metodología de la programación de sistemas informáticos"
+    ]
+  },
+  {
+    date: "2022",
+    title: "DS4A COLOMBIA",
+    description: ["Fundamentos en Analítica de Datos"]
+  }
+];
+---
+
+<ol class="relative border-s border-gray-200 ml-10">
+  {
+    EDUCATION.map((education) => (
+      <li class="mb-10 ms-4">
+        <EducationItem {...education} />
+      </li>
+    ))
+  }
+</ol>

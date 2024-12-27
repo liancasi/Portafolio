@@ -1,0 +1,35 @@
+---
+export interface Props {
+  title: string;
+  description: string | string[];  // Modificado para aceptar string o array de strings
+  date: string;
+}
+
+const { title, description, date } = Astro.props;
+---
+
+<div
+  class="absolute w-3 h-3 bg-pink-900 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"
+>
+</div>
+<time
+  class="mb-1 text-lg font-bold leading-none text-purple-600">
+  {date}
+</time>
+<h3 class="text-lg font-semibold text-white-600 mt-4">
+  {title}
+</h3>
+{
+  Array.isArray(description) ? (
+    description.map((desc) => (
+      <p class="mb-4 text-base font-normal text-yellow-500">
+        {desc}
+      </p>
+    ))
+  ) : (
+    <p class="mb-4 text-base font-normal text-gray-500">
+      {description}
+    </p>
+  )
+}
+    
