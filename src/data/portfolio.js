@@ -1,6 +1,7 @@
 import { HiOutlineCodeBracket, HiOutlineCubeTransparent, HiOutlineUserGroup } from "react-icons/hi2";
+import { asset } from "../utils/asset";
 
-const skill = (file) => `/images/skill/${file}`;
+const skill = (file) => asset(`/images/skill/${file}`);
 
 export const profile = {
   name: "Lizeth Andrea Caro",
@@ -139,7 +140,7 @@ export const experience = [
   },
 ];
 
-const project = (file) => `/images/projects/${file}`;
+const project = (file) => asset(`/images/projects/${file}`);
 
 export const projects = [
   {
@@ -284,7 +285,7 @@ export const projects = [
   },
 ];
 
-const certification = (file) => `/images/certifications/${file}`;
+const certification = (file) => asset(`/images/certifications/${file}`);
 
 // Ordered from most recent to oldest, per each certificate's issue date.
 export const certifications = [

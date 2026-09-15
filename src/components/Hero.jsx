@@ -4,6 +4,7 @@ import { HiOutlineBriefcase, HiOutlineCpuChip, HiOutlineAcademicCap } from "reac
 import { profile, stats, heroBadges } from "../data/portfolio";
 import useTypewriterCycle from "../hooks/useTypewriterCycle";
 import GradientBorder from "./ui/GradientBorder";
+import { asset } from "../utils/asset";
 
 const socials = [
   { Icon: HiOutlineMail, href: `mailto:${profile.email}`, label: "Email" },
@@ -84,7 +85,7 @@ export default function Hero() {
           <div className="relative mx-auto flex w-full max-w-lg items-center justify-center py-10">
             <div className="relative w-72 sm:w-80 md:w-96">
               <img
-                src="/images/photo_index.png"
+                src={asset("/images/photo_index.png")}
                 alt="Foto de Lizeth Andrea Caro"
                 className="w-full drop-shadow-[0_0_25px_rgba(151,62,247,0.25)]"
               />

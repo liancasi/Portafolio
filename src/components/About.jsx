@@ -5,6 +5,7 @@ import { locations, valuePillars } from "../data/portfolio";
 import GradientBorder from "./ui/GradientBorder";
 import MagicRings from "./MagicRings";
 import SkillsCarousel from "./SkillsCarousel";
+import { asset } from "../utils/asset";
 
 export default function About() {
   return (
@@ -36,7 +37,7 @@ export default function About() {
                 />
               </div>
               <img
-                src="/images/photo_about.png"
+                src={asset("/images/photo_about.png")}
                 alt="Lizeth Andrea Caro"
                 className="relative h-40 w-40 rounded-full border border-line object-cover object-top sm:h-48 sm:w-48"
               />
@@ -61,7 +62,7 @@ export default function About() {
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
           <div className="panel relative flex min-h-[26rem] flex-col overflow-hidden rounded-3xl lg:col-span-2">
             <img
-              src="/images/map.png"
+              src={asset("/images/map.png")}
               alt="Mapa de Colombia iluminado"
               className="absolute inset-0 h-full w-full object-cover"
             />

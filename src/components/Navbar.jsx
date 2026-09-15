@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineDownload, HiMenu, HiX } from "react-icons/hi";
 import GradientBorder from "./ui/GradientBorder";
+import { asset } from "../utils/asset";
 
 const LINKS = [
   { to: "/#inicio", label: "Inicio" },
@@ -20,7 +21,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
         <Link to="/#inicio" className="flex items-center gap-2.5 font-display font-semibold">
           <img
-            src="/images/icon_navbar.png"
+            src={asset("/images/icon_navbar.png")}
             alt="Lizeth Caro"
             className="h-9 w-9 rounded-full object-cover"
           />
@@ -38,7 +39,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <GradientBorder
             as="a"
-            href="/Hoja_de_Vida_Lizeth_Caro_Silva_.pdf"
+            href={asset("/Hoja_de_Vida_Lizeth_Caro_Silva_.pdf")}
             download
             className="hidden sm:inline-flex"
             innerClassName="items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white/90"

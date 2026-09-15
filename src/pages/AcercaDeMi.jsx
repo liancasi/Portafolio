@@ -8,6 +8,7 @@ import GithubActivity from "../components/GithubActivity";
 import GradientBorder from "../components/ui/GradientBorder";
 import useTypewriterCycle from "../hooks/useTypewriterCycle";
 import { profile, techStack } from "../data/portfolio";
+import { asset } from "../utils/asset";
 
 const socials = [
   { Icon: HiOutlineMail, href: `mailto:${profile.email}`, label: "Email" },
@@ -176,7 +177,7 @@ export default function AcercaDeMi() {
             className="relative mx-auto w-56 [--bulb-rx:225px] [--bulb-ry:290px] sm:w-64 sm:[--bulb-rx:250px] sm:[--bulb-ry:320px]"
           >
             <img
-              src="/images/photo_about_specific.png"
+              src={asset("/images/photo_about_specific.png")}
               alt="Lizeth Andrea Caro"
               className="relative aspect-2/3 w-full object-cover"
             />

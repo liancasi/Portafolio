@@ -21,9 +21,11 @@ function ScrollManager() {
   return null;
 }
 
+const basename = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <div className="min-h-screen bg-bg">
         <svg width="0" height="0" className="absolute">
           <defs>
